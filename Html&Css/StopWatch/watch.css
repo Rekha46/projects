@@ -1,0 +1,64 @@
+body
+{
+	font-family: vardana;
+	
+}
+
+.main
+{
+	margin-top: 80px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	width:500px;
+	height:150px;
+	background-color: black;
+	box-shadow: 5px 5px 2px 2px;
+}
+
+.digit
+{
+	font-size: 60px;
+	color:#fff;
+}
+
+.text
+{
+	font-size: 30px;
+	color:#fffcd6;
+}
+
+#buttons
+{
+	margin-top: 50px;
+}
+
+.buttons
+{
+	width: 100px;
+	padding: 10px 15px;
+	margin: 0px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 20px;
+	transition: 0.5s;
+	color: white;
+	font-weight: 500;
+}
+
+#start
+{
+	background-color: green;
+
+}
+
+#stop
+{
+	background-color: blue;
+}
+
+#reset
+{
+	background-color: red;
+}

@@ -1,0 +1,219 @@
+<html>
+<head>
+<style>
+	
+	body
+	{
+		//background-image: url("back9.jpg");
+		background-size: cover;
+	}
+
+	p
+	{
+		color:white;
+		font-size: 30px;
+		//margin-top: 5px;
+	}
+
+	#main
+	{
+		justify-content: space-around;
+		margin-top: 20px;
+		//border:2px solid black;
+		height:500px;
+		width:400px;
+		display: flex;
+		flex-wrap: wrap;
+		//background:linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+    }
+
+	.input
+	{
+		margin:10px;
+		border:2px solid black;
+		height:90px;
+		width:90px;
+		display:inline-block;
+		border-radius: 5px;
+		box-shadow: 2px 2px 2px;
+		//background-image: linear-gradient(to bottom right,gray,black);
+		background-image: url("back.jpg");
+
+		
+
+	}
+
+	#img1,#img2,#img3,#img4,#img5,#img6,#img7,#img8,#img9,#img10,#img11,#img12
+
+	{
+		
+		width:90px;
+		height:90px;
+		display: none;
+		background-size: cover;
+		
+
+	}
+
+</style>
+</head>
+<body>
+
+		<center>
+		<p style="color:black">Memory Game</p>
+		<hr style= "width:100px">
+		
+		<div id="main">
+		<div class="input" id="box1" onclick="pairGame(1)"><img  id="img1"></div>
+		<div class="input" id="box1" onclick="pairGame(2)"><img  id="img2"></div>
+		<div class="input" id="box1" onclick="pairGame(3)"><img  id="img3"></div>
+		<div class="input" id="box1" onclick="pairGame(4)"><img  id="img4"></div>
+		<div class="input" id="box1" onclick="pairGame(5)"><img  id="img5"></div>
+		<div class="input" id="box1" onclick="pairGame(6)"><img  id="img6"></div>
+		<div class="input" id="box1" onclick="pairGame(7)"><img  id="img7"></div>
+		<div class="input" id="box1" onclick="pairGame(8)"><img  id="img8"></div>
+		<div class="input" id="box1" onclick="pairGame(9)"><img  id="img9"></div>
+		<div class="input" id="box1" onclick="pairGame(10)"><img  id="img10"></div>
+		<div class="input" id="box1" onclick="pairGame(11)"><img  id="img11"></div>
+		<div class="input" id="box1" onclick="pairGame(12)"><img  id="img12"></div>
+
+		</div></center>
+	
+	
+</body>
+<script>
+var count0=0,count1=0,count2=0,count3=0,count4=0,count5=0,count6=0;
+var pre='';
+var cur='';
+var list=["pancake.jpg","Burger.jpg","kfc.jpg","65.jpg","Briyani.webp","porota.jpg"];
+var b;
+for (let i=1; i<=12; i++)
+{
+	b=Math.floor(Math.random()*list.length);
+	if(b==0)
+	{
+		count0++;
+		document.getElementById("img"+i).style.backgroundImage =  "url("+list[b]+")";
+		if(count0==2)
+		{
+			list.splice(b,1);
+			count0=count1;
+			count1=count2;
+			count2=count3;
+			count3=count4;
+			count4=count5;
+			continue;
+		}
+	}
+	else if(b==1)
+	{
+		count1++;
+		document.getElementById("img"+i).style.backgroundImage =  "url("+list[b]+")";
+		if(count1==2)
+		{
+			list.splice(b,1);
+			count1=count2;
+			count2=count3;
+			continue;
+		}
+	}
+	else if(b==2)
+	{
+		count2++;
+		document.getElementById("img"+i).style.backgroundImage =  "url("+list[b]+")";
+		if(count2==2)
+		{
+			list.splice(b,1);
+			count2=count3;
+			continue;
+		}	
+	}
+	else if(b==3)
+	{
+		count3++;
+		document.getElementById("img"+i).style.backgroundImage =  "url("+list[b]+")";
+		if(count3==2)
+		{
+			list.splice(b,1);
+			continue;
+		}
+	}
+
+	else if(b==4)
+	{
+		count4++;
+		document.getElementById("img"+i).style.backgroundImage =  "url("+list[b]+")";
+		if(count4==2)
+		{
+			list.splice(b,1);
+			continue;
+		}
+	}	
+
+	else if(b==5)
+	{
+		count5++;
+		document.getElementById("img"+i).style.backgroundImage =  "url("+list[b]+")";
+		if(count5==2)
+		{
+			list.splice(b,1);
+			continue;
+		}
+	}		
+}
+
+function pairGame(val)
+{
+	document.getElementById("img"+val).style.display='block';
+	if (pre=='')
+	{
+		pre=val;
+	}
+	else
+	{
+		cur=val;
+		setTimeout(isSame,500);
+	}
+}
+
+function isSame()
+{
+
+	var current=document.getElementById("img"+cur).style.backgroundImage;
+	var previous=document.getElementById("img"+pre).style.backgroundImage;
+
+	if(current==previous)
+	{
+		document.getElementById("img"+cur).style.display='block';
+		document.getElementById("img"+pre).style.display='block';
+	} 
+	
+	else
+	{
+
+		document.getElementById("img"+cur).style.display='none';
+		document.getElementById("img"+pre).style.display='none';
+	}
+
+	pre='';
+	cur='';
+}
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
